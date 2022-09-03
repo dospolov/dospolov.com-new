@@ -1,10 +1,10 @@
 ---
-import { DiscussionEmbed } from 'disqus-react'
 import Container from '../../components/container'
 import HeaderBlog from '../../components/header-blog'
 import MoreStories from '../../components/more-stories'
 import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
+import Comments from '../../components/comments'
 import SectionSeparator from '../../components/section-separator'
 import { metaTagsFragment, responsiveImageFragment } from '../../lib/fragments'
 import Layout from '../../components/layout'
@@ -126,15 +126,6 @@ export async function getStaticPaths() {
   }
   return pathsArray
 }
-
-const disqusProps = {
-  shortname: 'dospolov',
-  config: {
-    identifier: post.title,
-    title: post.title,
-    url: `https://dospolov.com/posts/${slug}`
-  }
-}
 ---
 
 <Layout preview={false} currentSlug={`posts/${slug}`}>
@@ -149,7 +140,7 @@ const disqusProps = {
       />
       <PostBody content={post.content} />
       {/* @ts-ignore */}
-      <DiscussionEmbed {...disqusProps} />
+      <Comments post={post} url={Astro.url.href} client:load />
     </article>
     <SectionSeparator />
     <MoreStories preview={false} posts={morePosts} />
