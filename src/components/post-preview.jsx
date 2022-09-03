@@ -1,6 +1,6 @@
-import Avatar from "./avatar";
-import Date from "./date";
-import CoverImage from "./cover-image";
+import Avatar from './avatar'
+import Date from './date'
+import CoverImage from './cover-image'
 
 export default function PostPreview({
   title,
@@ -11,7 +11,7 @@ export default function PostPreview({
   slug,
   preview
 }) {
-  const hrefLink = preview ? `/preview/posts/${slug}` : `/posts/${slug}`;
+  const hrefLink = preview ? `/preview/posts/${slug}` : `/posts/${slug}`
   return (
     <div>
       <div className="mb-5">
@@ -32,5 +32,5 @@ export default function PostPreview({
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       <Avatar name={author.name} picture={author.picture} />
     </div>
-  );
+  )
 }

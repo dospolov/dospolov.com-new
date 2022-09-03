@@ -1,5 +1,5 @@
-import Alert from "./alert";
-import Footer from "./footer";
+import Alert from './alert'
+import Footer from './footer'
 
 export default function Layout({ preview, currentSlug, children }) {
   return (
@@ -10,5 +10,5 @@ export default function Layout({ preview, currentSlug, children }) {
       </div>
       <Footer />
     </>
-  );
+  )
 }

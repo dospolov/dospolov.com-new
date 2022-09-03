@@ -1,4 +1,4 @@
-import PostPreview from "./post-preview";
+import PostPreview from './post-preview'
 
 export default function MoreStories({ posts, preview }) {
   return (
@@ -7,7 +7,7 @@ export default function MoreStories({ posts, preview }) {
         More Stories
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
-        {posts.map((post) => (
+        {posts.map(post => (
           <PostPreview
             preview={preview}
             key={post.slug}
@@ -21,5 +21,5 @@ export default function MoreStories({ posts, preview }) {
         ))}
       </div>
     </section>
-  );
+  )
 }

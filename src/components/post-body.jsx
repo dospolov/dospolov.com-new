@@ -1,4 +1,4 @@
-import { StructuredText, Image } from "react-datocms";
+import { StructuredText, Image } from 'react-datocms'
 
 export default function PostBody({ content }) {
   return (
@@ -7,8 +7,8 @@ export default function PostBody({ content }) {
         <StructuredText
           data={content}
           renderBlock={({ record }) => {
-            if (record.__typename === "ImageBlockRecord") {
-              return <Image lazyLoad={false} data={record.image.responsiveImage} />;
+            if (record.__typename === 'ImageBlockRecord') {
+              return <Image lazyLoad={false} data={record.image.responsiveImage} />
             }
 
             return (
@@ -16,10 +16,10 @@ export default function PostBody({ content }) {
                 <p>Don't know how to render a block!</p>
                 <pre>{JSON.stringify(record, null, 2)}</pre>
               </>
-            );
+            )
           }}
         />
       </div>
     </div>
-  );
+  )
 }
