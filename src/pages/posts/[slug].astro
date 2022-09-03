@@ -140,7 +140,7 @@ export async function getStaticPaths() {
       />
       <PostBody content={post.content} />
       {/* @ts-ignore */}
-      <Comments post={post} url={Astro.url.href} client:load />
+      <Comments post={post} url={Astro.url.href} client:visible />
     </article>
     <SectionSeparator />
     <MoreStories preview={false} posts={morePosts} />
