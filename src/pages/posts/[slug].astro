@@ -1,4 +1,5 @@
 ---
+import { DiscussionEmbed } from 'disqus-react'
 import Container from '../../components/container'
 import HeaderBlog from '../../components/header-blog'
 import MoreStories from '../../components/more-stories'
@@ -125,6 +126,15 @@ export async function getStaticPaths() {
   }
   return pathsArray
 }
+
+const disqusProps = {
+  shortname: 'dospolov',
+  config: {
+    identifier: post.title,
+    title: post.title,
+    url: `https://dospolovcom-new.netlify.app/posts/${slug}`
+  }
+}
 ---
 
 <Layout preview={false} currentSlug={`posts/${slug}`}>
@@ -138,6 +148,8 @@ export async function getStaticPaths() {
         author={post.author}
       />
       <PostBody content={post.content} />
+      {/* @ts-ignore */}
+      <DiscussionEmbed {...disqusProps} />
     </article>
     <SectionSeparator />
     <MoreStories preview={false} posts={morePosts} />
