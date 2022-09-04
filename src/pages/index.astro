@@ -1,6 +1,5 @@
 ---
 import Container from '../components/container'
-import HeroPost from '../components/hero-post'
 import Intro from '../components/intro.astro'
 import Layout from '../components/layout'
 import MoreStories from '../components/more-stories'
@@ -54,7 +53,7 @@ const parsedResponse = await response.json()
 
 const posts = parsedResponse.data.allPosts
 
-const heroPost = posts.shift()
+// const heroPost = posts.shift()
 const morePosts = posts
 ---
 
@@ -62,14 +61,6 @@ const morePosts = posts
   <Layout currentSlug={''}>
     <Container>
       <Intro />
-      <HeroPost
-        title={heroPost.title}
-        coverImage={heroPost.coverImage}
-        coverVideo={heroPost.coverVideo}
-        date={heroPost.date}
-        slug={heroPost.slug}
-        excerpt={heroPost.excerpt}
-      />
       <MoreStories posts={morePosts} />
     </Container>
   </Layout>

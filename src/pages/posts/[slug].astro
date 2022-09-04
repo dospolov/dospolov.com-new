@@ -1,11 +1,9 @@
 ---
 import Container from '../../components/container'
 import HeaderBlog from '../../components/header-blog'
-import MoreStories from '../../components/more-stories'
 import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
 import Comments from '../../components/comments'
-import SectionSeparator from '../../components/section-separator'
 import { metaTagsFragment, responsiveImageFragment } from '../../lib/fragments'
 import Layout from '../../components/layout'
 
@@ -133,7 +131,5 @@ export async function getStaticPaths() {
       <PostBody content={post.content} />
       <Comments post={post} url={Astro.url.href} client:idle />
     </article>
-    <SectionSeparator />
-    <MoreStories posts={morePosts} />
   </Container>
 </Layout>

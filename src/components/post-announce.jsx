@@ -1,5 +1,6 @@
 import Date from './date'
 import CoverImage from './cover-image'
+import CoverVideo from './cover-video'
 
 export default function PostAnnounce({
   title,
