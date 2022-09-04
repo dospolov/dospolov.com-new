@@ -1,12 +1,12 @@
 import React from 'react'
 import { DiscussionEmbed } from 'disqus-react'
 
-const comments = ({ post, url }) => {
+const comments = ({ title, url }) => {
   const disqusProps = {
     shortname: 'dospolov',
     config: {
-      identifier: post.title,
-      title: post.title,
+      identifier: title,
+      title,
       url
     }
   }

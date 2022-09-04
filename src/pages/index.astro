@@ -57,14 +57,14 @@ const parsedResponse = await response.json()
 const posts = parsedResponse.data.allPosts
 
 // const heroPost = posts.shift()
-const morePosts = posts
+// const morePosts = posts
 ---
 
 <>
-  <Layout currentSlug={''}>
+  <Layout {...{currentSlug:''}}>
     <Container>
       <Intro />
-      <MoreStories posts={morePosts} />
+      <MoreStories {...{posts}} />
     </Container>
   </Layout>
 </>

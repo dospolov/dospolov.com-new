@@ -135,19 +135,13 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout currentSlug={`posts/${slug}`}>
+<Layout {...{currentSlug: `posts/${slug}`}}>
   <Container>
     <HeaderBlog />
     <article>
-      <PostHeader
-        title={post.title}
-        excerpt={post.excerpt}
-        coverImage={post.coverImage}
-        coverVideo={post.coverVideo}
-        date={post.date}
-      />
-      <PostBody content={post.content} />
-      <Comments post={post} url={Astro.url.href} client:idle />
+      <PostHeader {...post} />
+      <PostBody {...post} />
+      <Comments {...{title: post.title, url: Astro.url.href}} client:idle />
     </article>
   </Container>
 </Layout>

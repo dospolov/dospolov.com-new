@@ -1,7 +1,8 @@
 import { StructuredText, Image } from 'react-datocms'
 import CoverVideo from './cover-video'
+import Date from './date'
 
-export default function PostBody({ content }) {
+export default function PostBody({ content, date }) {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="prose prose-lg prose-blue">
@@ -23,6 +24,12 @@ export default function PostBody({ content }) {
             )
           }}
         />
+      </div>
+
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-6 text-lg">
+          <Date dateString={date} />
+        </div>
       </div>
     </div>
   )

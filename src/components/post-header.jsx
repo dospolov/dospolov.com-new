@@ -1,9 +1,8 @@
-import Date from './date'
 import CoverImage from './cover-image'
 import CoverVideo from './cover-video'
 import PostTitle from './post-title'
 
-export default function PostHeader({ title, excerpt, coverImage, coverVideo, date }) {
+export default function PostHeader({ title, excerpt, coverImage, coverVideo }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -13,11 +12,6 @@ export default function PostHeader({ title, excerpt, coverImage, coverVideo, dat
         {coverImage && (
           <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
         )}
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6 text-lg">
-          <Date dateString={date} />
-        </div>
       </div>
     </>
   )
