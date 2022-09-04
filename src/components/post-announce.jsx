@@ -2,16 +2,8 @@ import Avatar from './avatar'
 import Date from './date'
 import CoverImage from './cover-image'
 
-export default function PostPreview({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-  preview
-}) {
-  const hrefLink = preview ? `/preview/posts/${slug}` : `/posts/${slug}`
+export default function PostAnnounce({ title, coverImage, date, excerpt, author, slug }) {
+  const hrefLink = `/posts/${slug}`
   return (
     <div>
       <div className="mb-5">

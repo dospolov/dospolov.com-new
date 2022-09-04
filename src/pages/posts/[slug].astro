@@ -128,9 +128,9 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout preview={false} currentSlug={`posts/${slug}`}>
+<Layout currentSlug={`posts/${slug}`}>
   <Container>
-    <HeaderBlog preview={false} />
+    <HeaderBlog />
     <article>
       <PostHeader
         title={post.title}
@@ -139,10 +139,9 @@ export async function getStaticPaths() {
         author={post.author}
       />
       <PostBody content={post.content} />
-      {/* @ts-ignore */}
       <Comments post={post} url={Astro.url.href} client:visible />
     </article>
     <SectionSeparator />
-    <MoreStories preview={false} posts={morePosts} />
+    <MoreStories posts={morePosts} />
   </Container>
 </Layout>
