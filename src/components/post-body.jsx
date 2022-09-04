@@ -5,7 +5,7 @@ import Date from './date'
 export default function PostBody({ content, date }) {
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="prose prose-lg prose-blue">
+      <div className="prose prose-lg prose-blue post-content">
         <StructuredText
           data={content}
           renderBlock={({ record }) => {

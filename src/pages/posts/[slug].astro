@@ -3,7 +3,7 @@ import Container from '../../components/container'
 import HeaderBlog from '../../components/header-blog'
 import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
-import Comments from '../../components/comments'
+// import Comments from '../../components/comments'
 import Layout from '../../components/layout'
 import getPostQuery from '../../queries/post'
 import getAllSlugs from '../../queries/allSlugs'
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
     <article>
       <PostHeader {...post} />
       <PostBody {...post} />
-      <Comments {...{title: post.title, url: Astro.url.href}} client:idle />
+      <!-- <Comments {...{title: post.title, url: Astro.url.href}} client:idle /> -->
     </article>
   </Container>
 </Layout>
