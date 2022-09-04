@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 
 const CoverVideo = ({ coverVideo, slug }) => {
   const video = (
@@ -10,7 +10,7 @@ const CoverVideo = ({ coverVideo, slug }) => {
       autoPlay={true}
       playsInline={true}
       loop={true}
-      className={cn('shadow-small', {
+      className={clsx('shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug
       })}
       poster={coverVideo.video.thumbnailUrl}
