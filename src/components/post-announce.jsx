@@ -2,7 +2,7 @@ import Avatar from './avatar'
 import Date from './date'
 import CoverImage from './cover-image'
 
-export default function PostAnnounce({ title, coverImage, date, excerpt, author, slug }) {
+export default function PostAnnounce({ title, coverImage, date, excerpt, slug }) {
   const hrefLink = `/posts/${slug}`
   return (
     <div>
@@ -22,7 +22,6 @@ export default function PostAnnounce({ title, coverImage, date, excerpt, author,
         <Date dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   )
 }

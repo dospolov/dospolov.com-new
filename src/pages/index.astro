@@ -29,14 +29,6 @@ const graphqlRequest = {
               ...responsiveImageFragment
             }
           }
-          author {
-            name
-            picture {
-              responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100}) {
-                ...responsiveImageFragment
-              }
-            }
-          }
         }
       }
 
@@ -70,7 +62,6 @@ const morePosts = posts
         title={heroPost.title}
         coverImage={heroPost.coverImage}
         date={heroPost.date}
-        author={heroPost.author}
         slug={heroPost.slug}
         excerpt={heroPost.excerpt}
       />
