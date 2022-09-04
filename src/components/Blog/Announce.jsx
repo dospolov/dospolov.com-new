@@ -1,18 +1,12 @@
-import Date from './date'
-import CoverImage from './cover-image'
-import CoverVideo from './cover-video'
+import clsx from 'clsx'
+import Date from '../date'
+import CoverImage from '../cover-image'
+import CoverVideo from '../cover-video'
 
-export default function PostAnnounce({
-  title,
-  coverImage,
-  coverVideo,
-  date,
-  excerpt,
-  slug
-}) {
+const Announce = ({ title, featured, coverImage, coverVideo, date, excerpt, slug }) => {
   const hrefLink = `/posts/${slug}`
   return (
-    <div>
+    <div className={clsx(featured ? 'bg-green-500' : 'bg-orange-400')}>
       <div className="mb-5">
         {coverVideo && <CoverVideo coverVideo={coverVideo} slug={slug} />}
         {coverImage && (
@@ -35,3 +29,5 @@ export default function PostAnnounce({
     </div>
   )
 }
+
+export default Announce

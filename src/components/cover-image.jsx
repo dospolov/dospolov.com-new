@@ -1,5 +1,5 @@
-import { Image } from 'react-datocms'
 import clsx from 'clsx'
+import { Image } from 'react-datocms'
 
 export default function CoverImage({ title, responsiveImage, slug }) {
   const image = (

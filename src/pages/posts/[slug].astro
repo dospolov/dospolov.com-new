@@ -1,10 +1,9 @@
 ---
-import Container from '../../components/container'
-import HeaderBlog from '../../components/header-blog'
+import IndexLayout from '../../layouts/Index.astro'
+import Container from '../../components/Container'
 import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
 // import Comments from '../../components/comments'
-import Layout from '../../components/layout'
 import getPostQuery from '../../queries/post'
 import getAllSlugs from '../../queries/allSlugs'
 import request from '../../lib/request'
@@ -25,13 +24,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout {...{currentSlug: `posts/${slug}`}}>
+<IndexLayout {...{ title: post.title}}>
   <Container>
-    <HeaderBlog />
-    <article>
-      <PostHeader {...post} />
-      <PostBody {...post} />
-      <!-- <Comments {...{title: post.title, url: Astro.url.href}} client:idle /> -->
-    </article>
+    <PostHeader {...post} />
+    <PostBody {...post} />
+    <!-- <Comments {...{title: post.title, url: Astro.url.href}} client:idle /> -->
   </Container>
-</Layout>
+</IndexLayout>

@@ -1,19 +1,13 @@
 ---
-import Container from '../components/container'
-import Layout from '../components/layout'
-import MoreStories from '../components/more-stories'
 import getHomeQuery from '../queries/home'
 import request from '../lib/request'
+import IndexLayout from '../layouts/Index.astro'
+import Blog from '../components/Blog'
 
 const parsedResponse = await request(getHomeQuery())
 const posts = parsedResponse.data.allPosts
 ---
 
-<>
-  <Layout {...{currentSlug:''}}>
-    <Container>
-      <h1>hi</h1>
-      <MoreStories {...{posts}} />
-    </Container>
-  </Layout>
-</>
+<IndexLayout {...{ title: 'Blog | Marat Dospolov'}}>
+  <Blog {...{ posts }} />
+</IndexLayout>
