@@ -6,9 +6,10 @@ export default function HeroPost({ title, coverImage, coverVideo, date, excerpt,
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        {coverVideo ? (
+        {coverVideo && (
           <CoverVideo url={coverVideo.url} title={coverVideo.alt} slug={slug} />
-        ) : (
+        )}
+        {coverImage && (
           <CoverImage
             title={title}
             responsiveImage={coverImage.responsiveImage}

@@ -11,7 +11,11 @@ const comments = ({ post, url }) => {
     }
   }
 
-  return <DiscussionEmbed {...disqusProps} />
+  return (
+    <div className="my-8">
+      <DiscussionEmbed {...disqusProps} />
+    </div>
+  )
 }
 
 export default comments

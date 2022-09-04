@@ -8,9 +8,8 @@ export default function PostHeader({ title, coverImage, coverVideo, date }) {
     <>
       <PostTitle>{title}</PostTitle>
       <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
-        {coverVideo ? (
-          <CoverVideo url={coverVideo.url} title={title} />
-        ) : (
+        {coverVideo && <CoverVideo url={coverVideo.url} title={title} />}
+        {coverImage && (
           <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
         )}
       </div>
