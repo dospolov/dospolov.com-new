@@ -25,9 +25,13 @@ const graphqlRequest = {
           excerpt
           date
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage {
               ...responsiveImageFragment
             }
+          }
+          coverVideo {
+            url
+            alt
           }
         }
       }
@@ -61,6 +65,7 @@ const morePosts = posts
       <HeroPost
         title={heroPost.title}
         coverImage={heroPost.coverImage}
+        coverVideo={heroPost.coverVideo}
         date={heroPost.date}
         slug={heroPost.slug}
         excerpt={heroPost.excerpt}

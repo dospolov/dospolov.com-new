@@ -1,16 +1,20 @@
-import Avatar from './avatar'
 import Date from './date'
 import CoverImage from './cover-image'
+import CoverVideo from './cover-video'
 
-export default function HeroPost({ title, coverImage, date, excerpt, slug }) {
+export default function HeroPost({ title, coverImage, coverVideo, date, excerpt, slug }) {
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={title}
-          responsiveImage={coverImage.responsiveImage}
-          slug={slug}
-        />
+        {coverVideo ? (
+          <CoverVideo url={coverVideo.url} title={coverVideo.alt} slug={slug} />
+        ) : (
+          <CoverImage
+            title={title}
+            responsiveImage={coverImage.responsiveImage}
+            slug={slug}
+          />
+        )}
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>

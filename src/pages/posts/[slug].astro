@@ -44,9 +44,13 @@ const graphqlRequest = {
             url(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 })
           }
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage {
               ...responsiveImageFragment
             }
+          }
+          coverVideo {
+            url
+            alt
           }
         }
 
@@ -56,9 +60,13 @@ const graphqlRequest = {
           excerpt
           date
           coverImage {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage {
               ...responsiveImageFragment
             }
+          }
+          coverVideo {
+            url
+            alt
           }
         }
       }
@@ -116,7 +124,12 @@ export async function getStaticPaths() {
   <Container>
     <HeaderBlog />
     <article>
-      <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
+      <PostHeader
+        title={post.title}
+        coverImage={post.coverImage}
+        coverVideo={post.coverVideo}
+        date={post.date}
+      />
       <PostBody content={post.content} />
       <Comments post={post} url={Astro.url.href} client:idle />
     </article>
