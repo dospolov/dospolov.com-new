@@ -23,6 +23,7 @@ const graphqlRequest = {
           }
           title
           slug
+          excerpt
           content {
             value
             blocks {
@@ -32,6 +33,16 @@ const graphqlRequest = {
                 image {
                   responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
                     ...responsiveImageFragment
+                  }
+                }
+              }
+              ...on VideoBlockRecord {
+                id
+                video {
+                  alt
+                  url
+                  video {
+                    thumbnailUrl
                   }
                 }
               }
@@ -49,6 +60,9 @@ const graphqlRequest = {
           coverVideo {
             url
             alt
+            video {
+              thumbnailUrl
+            }
           }
         }
 
@@ -65,6 +79,9 @@ const graphqlRequest = {
           coverVideo {
             url
             alt
+            video {
+              thumbnailUrl
+            }
           }
         }
       }
@@ -124,6 +141,7 @@ export async function getStaticPaths() {
     <article>
       <PostHeader
         title={post.title}
+        excerpt={post.excerpt}
         coverImage={post.coverImage}
         coverVideo={post.coverVideo}
         date={post.date}

@@ -14,9 +14,7 @@ export default function PostAnnounce({
   return (
     <div>
       <div className="mb-5">
-        {coverVideo && (
-          <CoverVideo url={coverVideo.url} title={coverVideo.alt} slug={slug} />
-        )}
+        {coverVideo && <CoverVideo coverVideo={coverVideo} slug={slug} />}
         {coverImage && (
           <CoverImage
             slug={slug}

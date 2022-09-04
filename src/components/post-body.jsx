@@ -1,4 +1,5 @@
 import { StructuredText, Image } from 'react-datocms'
+import CoverVideo from './cover-video'
 
 export default function PostBody({ content }) {
   return (
@@ -9,6 +10,9 @@ export default function PostBody({ content }) {
           renderBlock={({ record }) => {
             if (record.__typename === 'ImageBlockRecord') {
               return <Image lazyLoad={false} data={record.image.responsiveImage} />
+            }
+            if (record.__typename === 'VideoBlockRecord') {
+              return <CoverVideo coverVideo={record.video} />
             }
 
             return (

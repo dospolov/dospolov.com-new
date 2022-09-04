@@ -1,10 +1,10 @@
 import React from 'react'
 import cn from 'classnames'
 
-const CoverVideo = ({ url, alt, slug }) => {
+const CoverVideo = ({ coverVideo, slug }) => {
   const video = (
     <video
-      src={url}
+      src={coverVideo.url}
       preload="auto"
       muted={true}
       autoPlay={true}
@@ -13,13 +13,14 @@ const CoverVideo = ({ url, alt, slug }) => {
       className={cn('shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug
       })}
-      alt={alt}
+      poster={coverVideo.video.thumbnailUrl}
+      alt={coverVideo.alt}
     />
   )
   return (
     <div className="-mx-5 sm:mx-0">
       {slug ? (
-        <a href={`/posts/${slug}`} aria-label={alt}>
+        <a href={`/posts/${slug}`} aria-label={coverVideo.alt}>
           {video}
         </a>
       ) : (
