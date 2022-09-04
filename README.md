@@ -34,7 +34,7 @@ Then click **Read-only API token** and copy the token.
 Next, create the `.env` with your API token (which will be ignored by Git):
 
 ```bash
-echo ASTRO_EXAMPLE_CMS_DATOCMS_API_TOKEN=<YOUR_API_TOKEN> >> .env
+echo DATOCMS_API_TOKEN=<YOUR_API_TOKEN> >> .env
 ```
 
 #### Run your project locally
