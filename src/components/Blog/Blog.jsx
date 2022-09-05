@@ -10,15 +10,15 @@ const Blog = ({ posts }) => {
 
   return (
     <Container {...{ blogLinkActive: true }}>
-      <section class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="relative max-w-6xl mx-auto px-4 sm:px-6">
         {featuredPosts.map(post => (
-          <FeaturedAnnounce>
-            <Announce {...post} key={post.slug} />
+          <FeaturedAnnounce {...{ key: post.slug }}>
+            <Announce {...post} />
           </FeaturedAnnounce>
         ))}
         {plainPosts.map(post => (
-          <PlainAnnounce>
-            <Announce {...post} key={post.slug} />
+          <PlainAnnounce {...{ key: post.slug }}>
+            <Announce {...post} />
           </PlainAnnounce>
         ))}
       </section>

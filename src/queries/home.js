@@ -16,6 +16,7 @@ const getHomeQuery = () => ({
     allPosts(orderBy: date_DESC, first: 20) {
       title
       featured
+      tags
       slug
       excerpt
       date

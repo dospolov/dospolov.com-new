@@ -3,7 +3,7 @@ import CtaBackground from './CtaBackground'
 
 const FeaturedAnnounce = ({ children }) => {
   return (
-    <section>
+    <div className="pb-12 md:pb-20">
       <div className="max-w-6xl mx-auto">
         <div className="relative bg-purple-600 py-10 px-8 md:py-16 md:px-12">
           <div
@@ -20,7 +20,7 @@ const FeaturedAnnounce = ({ children }) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

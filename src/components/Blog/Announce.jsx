@@ -1,32 +1,49 @@
-import clsx from 'clsx'
-import Date from '../date'
-import CoverImage from '../cover-image'
-import CoverVideo from '../cover-video'
+import Date from '../Date'
+import Tags from './Tags'
+// import CoverImage from '../cover-image'
+// import CoverVideo from '../cover-video'
 
-const Announce = ({ title, featured, coverImage, coverVideo, date, excerpt, slug }) => {
-  const hrefLink = `/posts/${slug}`
+const Announce = ({
+  title,
+  tags,
+  coverImage,
+  coverVideo,
+  date,
+  excerpt,
+  slug,
+  featured
+}) => {
   return (
-    <div className={clsx(featured ? 'bg-green-500' : 'bg-orange-400')}>
-      <div className="mb-5">
-        {coverVideo && <CoverVideo coverVideo={coverVideo} slug={slug} />}
-        {coverImage && (
-          <CoverImage
-            slug={slug}
-            title={title}
-            responsiveImage={coverImage.responsiveImage}
-          />
+    <>
+      {/* {posterUrl ? (
+          <BlogLink {...{ externalLink, link }} className="relative block group">
+            <Poster {...{ posterUrl, alt: title }} />
+          </BlogLink>
+        ) : (
+          <div></div>
+        )} */}
+      <div>
+        <header>
+          <div className="mb-3">
+            <Tags {...{ tags, featured }} />
+          </div>
+          <h3 className="text-2xl lg:text-3xl mb-2">
+            <a
+              href={`/posts/${slug}`}
+              className="hover:text-gray-100 transition duration-150 ease-in-out"
+            >
+              {title}
+            </a>
+          </h3>
+        </header>
+        {excerpt && <p className="text-lg text-gray-400 flex-grow">{excerpt}</p>}
+        {featured || (
+          <footer className="flex items-center mt-4">
+            <Date {...{ dateString: date }} />
+          </footer>
         )}
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <a href={hrefLink} className="hover:underline">
-          {title}
-        </a>
-      </h3>
-      <div className="text-lg mb-4">
-        <Date dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-    </div>
+    </>
   )
 }
 
