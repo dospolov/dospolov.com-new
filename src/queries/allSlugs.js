@@ -1,7 +1,9 @@
 const getAllSlugs = () => ({
-  query: `{allPosts {
-    slug
-  }}`
+  query: `{
+    allPosts {
+      slug
+    }
+  }`
 })
 
 export default getAllSlugs

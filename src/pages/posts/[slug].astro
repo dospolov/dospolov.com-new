@@ -15,6 +15,7 @@ const post = parsedResponse.data.post
 
 export async function getStaticPaths() {
   const parsedSlugResponse = await request(getAllSlugs())
+  console.log(parsedSlugResponse)
 
   const pathsArray = []
   for (const slug of parsedSlugResponse.data.allPosts) {
