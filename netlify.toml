@@ -1,0 +1,9 @@
+[build]
+  publish = "public"
+  command = "yarn build"
+[build.environment]
+  YARN_VERSION = "1.22.10"
+  NETLIFY_USE_YARN = "true"
+  YARN_FLAGS = "--no-ignore-optional"
+  NODE_VERSION = "18.6.0"
+  NPM_VERSION = "8.13.2"

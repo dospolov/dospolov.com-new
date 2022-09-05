@@ -1,0 +1,33 @@
+---
+import getPostQuery from '../../queries/post'
+import getAllSlugs from '../../queries/allSlugs'
+import request from '../../lib/request'
+import IndexLayout from '../../layouts/Index.astro'
+import Container from '../../components/Container'
+import PostHeader from '../../components/post-header'
+import PostBody from '../../components/post-body'
+// import Comments from '../../components/comments'
+
+const { slug } = Astro.params
+
+const parsedResponse = await request(getPostQuery({ slug }))
+const post = parsedResponse.data.post
+
+export async function getStaticPaths() {
+  const parsedSlugResponse = await request(getAllSlugs())
+
+  const pathsArray = []
+  for (const slug of parsedSlugResponse.data.allPosts) {
+    pathsArray.push({ params: slug })
+  }
+  return pathsArray
+}
+---
+
+<IndexLayout {...{ title: post.title}}>
+  <Container>
+    <PostHeader {...post} />
+    <PostBody {...post} />
+    <!-- <Comments {...{title: post.title, url: Astro.url.href}} client:idle /> -->
+  </Container>
+</IndexLayout>
