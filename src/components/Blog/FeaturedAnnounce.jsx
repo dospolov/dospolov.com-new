@@ -1,11 +1,11 @@
 import React from 'react'
 import CtaBackground from './CtaBackground'
 
-const FeaturedAnnounce = ({ children }) => {
+const FeaturedAnnounce = ({ slug, children }) => {
   return (
-    <div className="pb-12 md:pb-20">
+    <a href={`/posts/${slug}`} className="block mb-8 md:mb-12 group">
       <div className="max-w-6xl mx-auto">
-        <div className="relative bg-purple-600 py-10 px-8 md:py-16 md:px-12">
+        <div className="relative bg-purple-600 py-10 px-8 md:py-16 md:px-12 group-hover:bg-purple-700">
           <div
             className="absolute right-0 top-0 -ml-40 pointer-events-none"
             aria-hidden="true"
@@ -20,7 +20,7 @@ const FeaturedAnnounce = ({ children }) => {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

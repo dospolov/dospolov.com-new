@@ -9,7 +9,7 @@ export default function CoverImage({ title, responsiveImage, slug }) {
         ...responsiveImage,
         alt: `Cover Image for ${title}`
       }}
-      className={clsx('shadow-small', {
+      className={clsx('relative shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug
       })}
     />

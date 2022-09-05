@@ -10,7 +10,7 @@ const CoverVideo = ({ coverVideo, slug }) => {
       autoPlay={true}
       playsInline={true}
       loop={true}
-      className={clsx('shadow-small', {
+      className={clsx('relative shadow-small', {
         'hover:shadow-medium transition-shadow duration-200': slug
       })}
       poster={coverVideo.video.thumbnailUrl}
