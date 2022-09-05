@@ -4,7 +4,7 @@ import FeaturedAnnounce from './FeaturedAnnounce'
 import PlainAnnounce from './PlainAnnounce'
 import Announce from './Announce'
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts = [] }) => {
   const featuredPosts = posts.filter(post => post.featured)
   const plainPosts = posts.filter(post => !post.featured)
 
