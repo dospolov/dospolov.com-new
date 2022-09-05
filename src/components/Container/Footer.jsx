@@ -1,4 +1,5 @@
 import React from 'react'
+import Twitter from '../Icons/Twitter'
 import Linkedin from '../Icons/Linkedin'
 import Facebook from '../Icons/Facebook'
 
@@ -9,6 +10,16 @@ function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="md:flex md:items-center md:justify-between">
             <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
+              <li className="ml-4">
+                <a
+                  href={`https://twitter.com/marat_dospolov`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
+                  <Twitter />
+                </a>
+              </li>
               <li className="ml-4">
                 <a
                   href={`https://fb.com/dospolov`}
