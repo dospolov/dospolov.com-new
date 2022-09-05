@@ -1,4 +1,4 @@
-import Date from '../Date'
+import Date from '../Date2'
 import Tags from './Tags'
 import CoverImage from '../cover-image'
 import CoverVideo from '../cover-video'

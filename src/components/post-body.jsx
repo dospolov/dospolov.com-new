@@ -1,6 +1,6 @@
 import { StructuredText, Image } from 'react-datocms'
 import CoverVideo from './cover-video'
-import Date from './Date'
+import Date from './Date2'
 
 export default function PostBody({ content, date }) {
   return (
