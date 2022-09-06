@@ -1,13 +1,13 @@
 ---
 import getHomeQuery from '../queries/home'
 import request from '../lib/request'
-import IndexLayout from '../layouts/Index.astro'
+import DefaultLayout from '../layouts/default.astro'
 import Blog from '../components/Blog'
 
 const parsedResponse = await request(getHomeQuery())
 const posts = parsedResponse.data.allPosts
 ---
 
-<IndexLayout {...{ title: 'Blog | Marat Dospolov'}}>
+<DefaultLayout {...{ title: 'Blog | Marat Dospolov'}}>
   <Blog {...{ posts }} />
-</IndexLayout>
+</DefaultLayout>
