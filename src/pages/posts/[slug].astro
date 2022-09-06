@@ -1,6 +1,6 @@
 ---
 import getPostQuery from '../../queries/post'
-import getAllSlugs from '../../queries/allSlugs'
+import getAllPostSlugs from '../../queries/allPostSlugs'
 import request from '../../lib/request'
 import DefaultLayout from '../../layouts/default.astro'
 import Container from '../../components/Container'
@@ -9,18 +9,13 @@ import PostBody from '../../components/post-body'
 import Comments from '../../components/comments'
 
 const { slug } = Astro.params
+const {
+  data: { post }
+} = await request(getPostQuery({ slug }))
 
-const parsedResponse = await request(getPostQuery({ slug }))
-const post = parsedResponse.data.post
-
-export async function getStaticPaths() {
-  const parsedSlugResponse = await request(getAllSlugs())
-
-  const pathsArray = []
-  for (const slug of parsedSlugResponse.data.allPosts) {
-    pathsArray.push({ params: slug })
-  }
-  return pathsArray
+export const getStaticPaths = async () => {
+  const r = await request(getAllPostSlugs())
+  return r.data.allPosts?.map(slug => ({ params: slug }))
 }
 ---
 

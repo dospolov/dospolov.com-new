@@ -1,0 +1,21 @@
+---
+import getPageQuery from '../../queries/page'
+import getAllPageSlugs from '../../queries/allPageSlugs'
+import request from '../../lib/request'
+import DefaultLayout from '../../layouts/default.astro'
+import Container from '../../components/Container'
+
+const { slug } = Astro.params
+const {
+  date: { page }
+} = await request(getPageQuery({ slug }))
+
+export const getStaticPaths = async () => {
+  const r = await request(getAllPageSlugs())
+  return r.data.allPages?.map(slug => ({ params: slug }))
+}
+---
+
+<DefaultLayout {...{ title: page.title}}>
+  <Container>pages</Container>
+</DefaultLayout>
