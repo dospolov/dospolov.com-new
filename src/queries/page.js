@@ -21,7 +21,7 @@ const getPageQuery = ({ slug }) => ({
               ...on ImageBlockRecord {
                 id
                 image {
-                  responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                  responsiveImage {
                     ...responsiveImageFragment
                   }
                 }
