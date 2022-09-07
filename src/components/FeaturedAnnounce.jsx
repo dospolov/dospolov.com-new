@@ -1,5 +1,5 @@
 import React from 'react'
-import CtaBackground from './CtaBackground'
+import FeaturedAnnounceBg from './backgrounds/FeaturedAnnounce'
 
 const FeaturedAnnounce = ({ slug, children }) => {
   return (
@@ -10,7 +10,7 @@ const FeaturedAnnounce = ({ slug, children }) => {
             className="absolute right-0 top-0 -ml-40 pointer-events-none"
             aria-hidden="true"
           >
-            <CtaBackground />
+            <FeaturedAnnounceBg />
           </div>
 
           <div className="relative flex flex-col lg:flex-row justify-between items-center">

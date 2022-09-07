@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { Image as DatoCMSImage } from 'react-datocms'
 
-const Image = ({ responsiveImage, title, className }) => {
+const Image = ({ responsiveImage, title, className = '' }) => {
   return (
     <DatoCMSImage
       {...{

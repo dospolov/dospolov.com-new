@@ -1,7 +1,7 @@
-import Video from '../Video'
-import Image from '../Image'
+import Video from './Video'
+import Image from './Image'
 import Tags from './Tags'
-import Date from '../Date'
+import Date from './Date'
 
 const Announce = ({
   title,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CtaBackground() {
+function FeaturedAnnounce() {
   return (
     <svg width="238" height="110" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -26,4 +26,4 @@ function CtaBackground() {
   )
 }
 
-export default CtaBackground
+export default FeaturedAnnounce

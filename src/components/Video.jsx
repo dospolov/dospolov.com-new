@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-const Video = ({ video, className }) => {
+const Video = ({ video, className = '' }) => {
   return (
     <video
       {...{

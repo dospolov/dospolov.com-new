@@ -4,7 +4,10 @@ import getAllPostSlugs from '../../queries/allPostSlugs'
 import request from '../../lib/request'
 import DefaultLayout from '../../layouts/default.astro'
 import Container from '../../components/Container'
-import Post from '../../components/Post'
+import Video from '../../components/Video'
+import Image from '../../components/Image'
+import Content from '../../components/Content'
+import Date from '../../components/Date'
 import Comments from '../../components/Comments'
 
 const { slug } = Astro.params
@@ -16,13 +19,35 @@ export const getStaticPaths = async () => {
   const r = await request(getAllPostSlugs())
   return r.data.allPosts?.map(slug => ({ params: slug }))
 }
+
+const { title, excerpt, coverImage, coverVideo, content, date } = post
 ---
 
 <DefaultLayout {...{ title: post.title}}>
   <Container>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-10">
       <div class="max-w-3xl mx-auto">
-        <Post {...post} />
+        <h1
+          class="text-3xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"
+        >
+          {title}
+        </h1>
+        {excerpt && <p class="text-xl leading-relaxed mb-4">{excerpt}</p>}
+        <div class="mb-8 md:mb-16 -mx-5 sm:mx-0">
+          {coverVideo && <Video {...{ video: coverVideo }} />}
+          {
+            coverImage && (
+              <Image {...{ title, responsiveImage: coverImage.responsiveImage }} />
+            )
+          }
+        </div>
+        <div class="max-w-2xl mx-auto">
+          <Content {...{ content }} />
+
+          <div class="max-w-2xl mx-auto mb-6 text-lg">
+            <Date {...{ dateString: date }} />
+          </div>
+        </div>
         <Comments {...{ title: post.title, url: Astro.url.href }} client:idle />
       </div>
     </div>
