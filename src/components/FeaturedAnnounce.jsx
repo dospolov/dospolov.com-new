@@ -1,5 +1,5 @@
 import React from 'react'
-import FeaturedAnnounceBg from './FeaturedAnnounce2'
+import FeaturedAnnounceBg from './Backgrounds/FeaturedAnnounce'
 
 const FeaturedAnnounce = ({ slug, children }) => {
   return (
