@@ -4,9 +4,8 @@ import getAllPostSlugs from '../../queries/allPostSlugs'
 import request from '../../lib/request'
 import DefaultLayout from '../../layouts/default.astro'
 import Container from '../../components/Container'
-import PostHeader from '../../components/post-header'
-import PostBody from '../../components/post-body'
-import Comments from '../../components/comments'
+import Post from '../../components/Post'
+import Comments from '../../components/Comments'
 
 const { slug } = Astro.params
 const {
@@ -21,8 +20,11 @@ export const getStaticPaths = async () => {
 
 <DefaultLayout {...{ title: post.title}}>
   <Container>
-    <PostHeader {...post} />
-    <PostBody {...post} />
-    <Comments {...{title: post.title, url: Astro.url.href}} client:idle />
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+      <div class="max-w-3xl mx-auto">
+        <Post {...post} />
+        <Comments {...{ title: post.title, url: Astro.url.href }} client:idle />
+      </div>
+    </div>
   </Container>
 </DefaultLayout>

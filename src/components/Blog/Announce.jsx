@@ -1,7 +1,7 @@
-import Date from '../Date2'
+import Video from '../Video'
+import Image from '../Image'
 import Tags from './Tags'
-import CoverImage from '../cover-image'
-import CoverVideo from '../cover-video'
+import Date from '../Date'
 
 const Announce = ({
   title,
@@ -15,17 +15,24 @@ const Announce = ({
 }) => {
   return (
     <>
-      {coverVideo && <CoverVideo {...{ coverVideo }} />}
-      {coverImage && (
-        <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
+      {coverVideo && (
+        <Video
+          {...{
+            video: coverVideo,
+            slug,
+            className: 'hover:shadow-medium transition-shadow duration-200'
+          }}
+        />
       )}
-      {/* {posterUrl ? (
-          <BlogLink {...{ externalLink, link }} className="relative block group">
-            <Poster {...{ posterUrl, alt: title }} />
-          </BlogLink>
-        ) : (
-          <div></div>
-        )} */}
+      {coverImage && (
+        <Image
+          {...{
+            title,
+            responsiveImage: coverImage.responsiveImage,
+            className: 'hover:shadow-medium transition-shadow duration-200'
+          }}
+        />
+      )}
       {!coverVideo && !coverImage && <div>{/* empty column */}</div>}
       <div>
         <header>

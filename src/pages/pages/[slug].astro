@@ -7,7 +7,7 @@ import Container from '../../components/Container'
 
 const { slug } = Astro.params
 const {
-  date: { page }
+  data: { page }
 } = await request(getPageQuery({ slug }))
 
 export const getStaticPaths = async () => {
@@ -17,5 +17,15 @@ export const getStaticPaths = async () => {
 ---
 
 <DefaultLayout {...{ title: page.title}}>
-  <Container>pages</Container>
+  <Container>
+    <section class="relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="pt-10">
+          <div class="max-w-3xl mx-auto">
+            <article>page content</article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </Container>
 </DefaultLayout>

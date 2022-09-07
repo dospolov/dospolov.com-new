@@ -1,7 +1,7 @@
 import React from 'react'
 import { DiscussionEmbed } from 'disqus-react'
 
-const comments = ({ title, url }) => {
+const Comments = ({ title, url }) => {
   const disqusProps = {
     shortname: 'dospolov',
     config: {
@@ -18,4 +18,4 @@ const comments = ({ title, url }) => {
   )
 }
 
-export default comments
+export default Comments
