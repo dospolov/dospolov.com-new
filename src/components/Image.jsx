@@ -6,7 +6,7 @@ const Image = ({ responsiveImage, title, className = '' }) => {
   return (
     <DatoCMSImage
       {...{
-        lazyLoad: true,
+        lazyLoad: false,
         data: { ...responsiveImage, alt: title },
         className: clsx('relative shadow-small', className)
       }}

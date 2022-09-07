@@ -4,6 +4,8 @@ import getAllPageSlugs from '../../queries/allPageSlugs'
 import request from '../../lib/request'
 import DefaultLayout from '../../layouts/default.astro'
 import Container from '../../components/Container'
+import Content from '../../components/Content'
+import Date from '../../components/Date'
 
 const { slug } = Astro.params
 const {
@@ -14,18 +16,27 @@ export const getStaticPaths = async () => {
   const r = await request(getAllPageSlugs())
   return r.data.allPages?.map(slug => ({ params: slug }))
 }
+
+const { title, content, date } = page
 ---
 
 <DefaultLayout {...{ title: page.title}}>
   <Container>
-    <section class="relative">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="pt-10">
-          <div class="max-w-3xl mx-auto">
-            <article>page content</article>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-10">
+      <div class="max-w-3xl mx-auto">
+        <h1
+          class="text-3xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"
+        >
+          {title}
+        </h1>
+        <div class="max-w-2xl mx-auto">
+          <Content {...{ content }} />
+
+          <div class="max-w-2xl mx-auto mb-6 text-lg">
+            <Date {...{ dateString: date }} />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </Container>
 </DefaultLayout>
