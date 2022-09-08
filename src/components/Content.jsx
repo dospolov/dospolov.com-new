@@ -4,7 +4,7 @@ import Video from './Video'
 
 const Content = ({ content }) => {
   return (
-    <div className="prose prose-lg prose-blue post-content">
+    <div className="prose prose-lg prose-blue post-content prose-invert">
       <StructuredText
         {...{
           data: content,
