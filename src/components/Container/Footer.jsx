@@ -41,7 +41,7 @@ function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="text-gray-400 text-sm mr-4">&copy; 2022 dospolov.com</div>
+            <div className="text-gray-400 text-sm mr-4">&copy; 2024 dospolov.com</div>
           </div>
         </div>
       </div>
