@@ -9,6 +9,10 @@ body {
   background: green;
 }
 
+img, video {
+  max-height: 100vh;
+}
+
 // Additional styles
 @import 'additional-styles/utility-patterns.scss';
 @import 'additional-styles/range-slider.scss';
