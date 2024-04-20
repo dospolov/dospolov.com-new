@@ -1,14 +1,15 @@
 import React from 'react'
 import clsx from 'clsx'
-import { Image as DatoCMSImage } from 'react-datocms'
+import { SRCImage } from 'react-datocms'
 
 const Image = ({ responsiveImage, title, className = '' }) => {
+  console.log(responsiveImage)
   return (
-    <DatoCMSImage
+    <SRCImage
       {...{
         lazyLoad: false,
         data: { ...responsiveImage, alt: title },
-        className: clsx('relative shadow-small', className)
+        className: clsx('relative shadow-small max-h-svh', className)
       }}
     />
   )

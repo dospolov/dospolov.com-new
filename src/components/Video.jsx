@@ -11,7 +11,7 @@ const Video = ({ video, className = '' }) => {
         autoPlay: true,
         playsInline: true,
         loop: true,
-        className: clsx('relative shadow-small', className),
+        className: clsx('relative shadow-small max-h-svh', className),
         poster: video.video.thumbnailUrl,
         alt: video.alt
       }}

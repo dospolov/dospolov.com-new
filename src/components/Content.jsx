@@ -1,5 +1,5 @@
 import React from 'react'
-import { StructuredText, Image } from 'react-datocms'
+import { StructuredText, SRCImage } from 'react-datocms'
 import Video from './Video'
 
 const Content = ({ content }) => {
@@ -11,7 +11,7 @@ const Content = ({ content }) => {
           renderBlock: ({ record }) => {
             if (record.__typename === 'ImageBlockRecord') {
               return (
-                <Image {...{ lazyLoad: false, data: record.image.responsiveImage }} />
+                <SRCImage {...{ lazyLoad: false, data: record.image.responsiveImage }} />
               )
             }
             if (record.__typename === 'VideoBlockRecord') {
